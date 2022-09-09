@@ -46,7 +46,7 @@ version: "3.7"
 
 services:
     runner:
-      image: tcardonne/github-runner:latest
+      image: nerodacles/github-runner:latest
       environment:
         RUNNER_NAME: "my-runner"
         RUNNER_REPOSITORY_URL: ${RUNNER_REPOSITORY_URL}
