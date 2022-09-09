@@ -49,9 +49,9 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     apt-get clean
     
 # Install nvm
-RUN curl -sL https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh -o install_nvm.sh \
-    bash install_nvm.sh \
-    rm install_nvm.sh \
+RUN curl -sL https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh -o install_nvm.sh && \
+    bash install_nvm.sh && \
+    rm install_nvm.sh && \
     nvm install --lts
 
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
