@@ -27,8 +27,7 @@ LABEL maintainer="juanma@jmcv.codes" \
     org.label-schema.vendor="Juanma Canahuate" \
     org.label-schema.docker.cmd="docker run -it nerodacles/github-runner:latest"
 
-RUN DEBIAN_FRONTEND= curl -sL https://deb.nodesource.com/setup_12.x | sudo bash - && \
-    noninteractive apt-get update && \
+RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     apt-get install -y \
         curl \
         wget \
@@ -46,7 +45,8 @@ RUN DEBIAN_FRONTEND= curl -sL https://deb.nodesource.com/setup_12.x | sudo bash 
         liblttng-ust0 \
         libcurl4-openssl-dev \
         openssh-client && \
-        nodejs && \
+        curl -sL https://deb.nodesource.com/setup_12.x | sudo bash - && \
+    apt-get install -y nodejs && \
     rm -rf /var/lib/apt/lists/* && \
     apt-get clean
 
